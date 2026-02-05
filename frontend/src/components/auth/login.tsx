@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { authService } from "../../services/api";
 import { toast } from "react-toastify";
-import { Mail, Lock, Loader2, UserPlus, ArrowRight } from "lucide-react"; 
+import { Mail, Lock, Loader2, UserPlus, ArrowRight, WalletCardsIcon } from "lucide-react"; 
 import { useNavigate } from "react-router-dom"; 
 interface Props {
   setIsLoggedIn: (value: boolean) => void;
@@ -25,7 +25,7 @@ const Login: React.FC<Props> = ({ setIsLoggedIn }) => {
     return Object.keys(newErrors).length === 0;
   }, [email, password]);
 
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validateForm()) return;
 
@@ -51,8 +51,8 @@ const Login: React.FC<Props> = ({ setIsLoggedIn }) => {
       <div className="w-full max-w-md bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl border border-white/50 p-8 space-y-6">
         {/* Header */}
         <div className="text-center space-y-4">
-          <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center mx-auto shadow-lg">
-            <Mail className="w-8 h-8 text-white" />
+         <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto shadow-lg">
+            <WalletCardsIcon className="w-8 h-8 text-white drop-shadow-sm" />
           </div>
           <div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-teal-900 bg-clip-text text-transparent">
@@ -124,7 +124,7 @@ const Login: React.FC<Props> = ({ setIsLoggedIn }) => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-emerald-500/25 transition-all duration-200 flex items-center justify-center space-x-2 disabled:cursor-not-allowed"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-3 px-4 rounded-xl shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500/25 transition-all duration-200 flex items-center justify-center space-x-2 disabled:cursor-not-allowed"
           >
             {loading ? (
               <>
@@ -141,12 +141,12 @@ const Login: React.FC<Props> = ({ setIsLoggedIn }) => {
         </form>
 
         {/* Signup Button */}
-        <div className="pt-4 border-t border-gray-200">
+        <div className="pt-4 border-t border-blue-100">
           <button
             type="button"
             onClick={handleSignup}
             disabled={loading}
-            className="w-full bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-800 font-semibold py-3 px-4 rounded-xl hover:shadow-md focus:outline-none focus:ring-4 focus:ring-indigo-500/25 transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 text-blue-800 border border-blue-200 font-semibold py-3 px-4 rounded-xl hover:shadow-md focus:outline-none focus:ring-4 focus:ring-blue-500/25 transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50"
           >
             <UserPlus className="w-5 h-5" />
             <span>Don't have an account? Sign Up</span>

@@ -43,6 +43,14 @@ export const authService={
         return{token, user}; // returns or give object of jwt token and user for usage/component
     },
 
+    signup: async (email:string, password:string) =>
+    {
+        const response = await api.post('/signup', {email,password}); // /login is the endpoint of the api needs to have email and password
+        const {token, user}=response.data; // backend returns user and token
+        setToken(token); // sets/saves the jwt tokem to local storage 
+        return{token, user}; // returns or give object of jwt token and user for usage/component
+    },
+
 
     // api for logout
     logout : async () =>

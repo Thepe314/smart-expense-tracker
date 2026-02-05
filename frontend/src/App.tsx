@@ -5,6 +5,7 @@ import { BrowserRouter, Routes,Route,useNavigate,Navigate } from 'react-router-d
 import './index.css' 
 import { authService, isAuthenticated } from './services/api';
 import Login from './components/auth/login';
+import Signup from './components/auth/signup';
 
 
 function AppContent(){
@@ -31,7 +32,7 @@ function AppContent(){
         <Routes>
                <Route path="/" element={<Navigate to="/login" replace />} />
            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-
+            <Route path="/signup" element={<Signup />} /> 
         </Routes>
 
         {/* Global toastify containter */}
